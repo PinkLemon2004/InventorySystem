@@ -1,10 +1,11 @@
 ﻿@page
-@model inventorySystem.Pages.Rangsit.CreateRangsitModel
+@model inventorySystem.Pages.Rangsit.EditRangsitModel
 @{
 }
-<br />
-<h2>New Item</h2>
-@if (Model.errorMessage.Length >0 )
+<br/>
+<h2>Edit Item</h2>
+
+@if (Model.errorMessage.Length > 0)
 {
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
         <strong>@Model.errorMessage</strong>
@@ -12,6 +13,8 @@
     </div>
 }
 <form method="post">
+    <input type="hidden" name="itemid" value="@Model.stockInfo.itemid"/>
+
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label">Item</label>
         <div class="col-sm-6">
@@ -36,7 +39,7 @@
             <input type="text" class="form-control" name="amount" value="@Model.stockInfo.amount">
         </div>
     </div>
-    @if (Model.successMessage.Length >0)
+    @if (Model.successMessage.Length > 0)
     {
         <div class="row mb-3">
             <div class="alert alert-success alert-dismissible fade show" role="alert">
