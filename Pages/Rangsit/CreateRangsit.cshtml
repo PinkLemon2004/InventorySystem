@@ -1,0 +1,56 @@
+﻿@page
+@model inventorySystem.Pages.Rangsit.CreateRangsitModel
+@{
+}
+<br />
+<h2>New Item</h2>
+@if (Model.errorMessage.Length >0 )
+{
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+<form method="post">
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Item</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="item" value="@Model.stockInfo.item">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Store ID</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="storeid" value="@Model.stockInfo.storeid">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Supplier</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="suplier" value="@Model.stockInfo.supplier">
+        </div>
+    </div>
+    <div class="row mb-3">
+        <label class="col-sm-3 col-form-label">Amount</label>
+        <div class="col-sm-6">
+            <input type="text" class="form-control" name="amount" value="@Model.stockInfo.amount">
+        </div>
+    </div>
+    @if (Model.successMesage.Length >0)
+    {
+        <div class="row mb-3">
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>@Model.successMesage</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+    }
+    <div class="row mb-3">
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        <div class="col-sm-3 d-grid">
+            <a class="btn btn-outline-primary" href="/Rangsit/IndexRangsit" role="button">Cancel</a>
+        </div>
+    </div>
+</form>
